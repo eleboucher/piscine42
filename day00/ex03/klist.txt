@@ -1,0 +1,5 @@
+Credentials cache: API:AC43DA8B-FD4B-4971-92A9-8B3CF845AB64
+        Principal: elebouch@42.FR
+
+  Issued                Expires               Principal
+Jul 31 10:57:15 2017  Aug  7 10:57:09 2017  krbtgt/42.FR@42.FR

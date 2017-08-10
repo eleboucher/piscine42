@@ -1,0 +1,1 @@
+find . -type f  \( -regex ^.*/#.*#$ -o -regex ^.*/.*~$ \) -print -delete
