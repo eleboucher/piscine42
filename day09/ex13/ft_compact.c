@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_compact.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/04 18:49:03 by exam              #+#    #+#             */
-/*   Updated: 2017/08/13 12:28:40 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/11 10:00:27 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/11 10:10:43 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_compact(char **tab, int length)
 {
-	int result;
+	int i;
 
-	while (*s1 == *(s2) && *(s1))
+	i = 0;
+	while (i < length)
 	{
-		s2++;
-		s1++;
+		if (!tab[i])
+		{
+			while (i < length - 1)
+			{
+				tab[i] = tab[i + 1];
+				i++;
+			}
+			length--;
+			i = 0;
+		}
+		i++;
 	}
-	result = *s1 - *s2;
-	return (result);
+	return (length);
 }

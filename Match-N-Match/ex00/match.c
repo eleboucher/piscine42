@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   match.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 16:22:40 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/11 14:38:35 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/12 15:58:08 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/12 15:58:39 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int		ft_strlen(char *str)
+int		match(char *s1, char *s2)
 {
-	int n;
-
-	n = 0;
-	while (*(str++))
-		n++;
-	return (n);
-}
-
-char	*ft_strdup(char *src)
-{
-	char *dest;
-	char *cpy;
-
-	if ((dest = (char*)malloc(sizeof(char) * (ft_strlen(src) + 1))) == NULL)
-		return (NULL);
-	cpy = dest;
-	while (*src)
-		*(dest++) = *(src++);
-	*dest = '\0';
-	return (cpy);
+	if (*s1 == '\0' && *s2 == '\0')
+		return (1);
+	if (*s2 == '*' && *s1 == '\0')
+		return (match(s1, s2 + 1));
+	if (*s1 == *s2)
+		return (match(s1 + 1, s2 + 1));
+	if (*s2 == '*')
+		return (match(s1 + 1, s2) || match(s1, s2 + 1));
+	return (0);
 }

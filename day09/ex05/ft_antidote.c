@@ -1,37 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_antidote.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 16:22:40 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/11 14:38:35 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/10 21:45:05 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/10 21:51:48 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int		ft_strlen(char *str)
+void	ft_sort_integer_table(int *tab, int size)
 {
-	int n;
+	int i;
+	int j;
+	int temp;
 
-	n = 0;
-	while (*(str++))
-		n++;
-	return (n);
+	i = size - 1;
+	while (i > 0)
+	{
+		j = 0;
+		while (j <= i - 1)
+		{
+			if (tab[j + 1] < tab[j])
+			{
+				temp = tab[j];
+				tab[j] = tab[j + 1];
+				tab[j + 1] = temp;
+			}
+			j++;
+		}
+		i--;
+	}
 }
 
-char	*ft_strdup(char *src)
+int		ft_antidote(int i, int j, int k)
 {
-	char *dest;
-	char *cpy;
+	int tab[3];
 
-	if ((dest = (char*)malloc(sizeof(char) * (ft_strlen(src) + 1))) == NULL)
-		return (NULL);
-	cpy = dest;
-	while (*src)
-		*(dest++) = *(src++);
-	*dest = '\0';
-	return (cpy);
+	tab[0] = i;
+	tab[1] = j;
+	tab[2] = k;
+	ft_sort_integer_table(tab, 3);
+	return (tab[1]);
 }

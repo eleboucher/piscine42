@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_rot42.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/04 18:49:03 by exam              #+#    #+#             */
-/*   Updated: 2017/08/13 12:28:40 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/10 20:46:30 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/10 20:55:48 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+char	*ft_rot42(char *str)
 {
-	int result;
+	int i;
 
-	while (*s1 == *(s2) && *(s1))
+	i = 0;
+	while (str[i] != '\0')
 	{
-		s2++;
-		s1++;
+		if (str[i] >= 97 && str[i] <= 122)
+			str[i] = (str[i] - 'a' + 42) % 26 + 'a';
+		else if (str[i] >= 65 && str[i] <= 90)
+			str[i] = (str[i] - 'A' + 42) % 26 + 'A';
 	}
-	result = *s1 - *s2;
-	return (result);
+	return (str);
 }

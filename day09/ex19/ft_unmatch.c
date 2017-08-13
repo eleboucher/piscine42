@@ -1,42 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_params.c                                   :+:      :+:    :+:   */
+/*   ft_unmatch.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 12:52:56 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/13 12:29:05 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/11 11:47:16 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/11 11:57:46 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-int		ft_strcmp(char *s1, char *s2)
+void	ft_sort_integer_table(int *tab, int size)
 {
-	int result;
-
-	while (*s1 == *(s2) && *(s1))
-	{
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
-}
-
-void	ft_sort(char **tab, int size)
-{
-	int		i;
-	int		j;
-	char	*temp;
+	int i;
+	int j;
+	int temp;
 
 	i = size - 1;
 	while (i > 0)
 	{
-		j = 1;
+		j = 0;
 		while (j <= i - 1)
 		{
-			if (ft_strcmp(tab[j + 1], tab[j]) < 0)
+			if (tab[j + 1] < tab[j])
 			{
 				temp = tab[j];
 				tab[j] = tab[j + 1];
@@ -48,22 +34,17 @@ void	ft_sort(char **tab, int size)
 	}
 }
 
-void	ft_putstr(char *str)
-{
-	while (*str)
-		ft_putchar(*(str++));
-}
-
-int		main(int argc, char **argv)
+int		ft_unmatch(int *tab, int length)
 {
 	int i;
 
-	ft_sort(argv, argc);
-	i = 1;
-	while (i < argc)
+	i = 0;
+	ft_sort_integer_table(tab, length);
+	while (i < length - 1)
 	{
-		ft_putstr(argv[i++]);
-		ft_putchar('\n');
+		if (tab[i] != tab[i + 1])
+			return (tab[i]);
+		i += 2;
 	}
-	return (0);
+	return (tab[length - 1]);
 }

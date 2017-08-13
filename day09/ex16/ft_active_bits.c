@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_active_bits.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/04 18:49:03 by exam              #+#    #+#             */
-/*   Updated: 2017/08/13 12:28:40 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/11 10:27:44 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/11 11:36:13 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+unsigned int	ft_active_bits(int value)
 {
-	int result;
+	unsigned int i;
 
-	while (*s1 == *(s2) && *(s1))
+	i = 0;
+	while (value != 0)
 	{
-		s2++;
-		s1++;
+		i += value & 1;
+		value >>= 1;
 	}
-	result = *s1 - *s2;
-	return (result);
+	return (i);
 }

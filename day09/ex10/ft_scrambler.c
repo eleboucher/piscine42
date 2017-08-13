@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_scrambler.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/04 18:49:03 by exam              #+#    #+#             */
-/*   Updated: 2017/08/13 12:28:40 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/11 09:17:28 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/11 09:22:37 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+void	ft_scrambler(int ***a, int *b, int *******c, int ****d)
 {
-	int result;
+	int temp;
+	int temp2;
+	int temp3;
 
-	while (*s1 == *(s2) && *(s1))
-	{
-		s2++;
-		s1++;
-	}
-	result = *s1 - *s2;
-	return (result);
+	temp = *******c;
+	*******c = ***a;
+	temp2 = ****d;
+	****d = temp;
+	temp3 = *b;
+	*b = temp2;
+	***a = temp3;
 }

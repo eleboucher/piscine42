@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_perso.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/04 18:49:03 by exam              #+#    #+#             */
-/*   Updated: 2017/08/13 12:28:40 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/11 09:24:21 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/11 09:33:46 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int result;
+#ifndef FT_PERSO_H
+# define FT_PERSO_H
+# include <string.h>
+# define SAVE_THE_WORLD 1
 
-	while (*s1 == *(s2) && *(s1))
-	{
-		s2++;
-		s1++;
-	}
-	result = *s1 - *s2;
-	return (result);
-}
+typedef	struct	s_perso
+{
+	char		*name;
+	double		life;
+	int			age;
+	int			profession;
+}				t_perso;
+#endif

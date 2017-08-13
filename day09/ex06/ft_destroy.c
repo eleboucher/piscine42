@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_destroy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 16:22:40 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/11 14:38:35 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/11 08:11:55 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/11 10:31:28 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "ft_ultimator.h"
 
-int		ft_strlen(char *str)
+void	ft_destroy(char ***factory)
 {
-	int n;
+	int count;
+	int count2;
 
-	n = 0;
-	while (*(str++))
-		n++;
-	return (n);
-}
-
-char	*ft_strdup(char *src)
-{
-	char *dest;
-	char *cpy;
-
-	if ((dest = (char*)malloc(sizeof(char) * (ft_strlen(src) + 1))) == NULL)
-		return (NULL);
-	cpy = dest;
-	while (*src)
-		*(dest++) = *(src++);
-	*dest = '\0';
-	return (cpy);
+	count = 0;
+	while (factory[count][count2])
+	{
+		count2 = 0;
+		while (factory[count][count2])
+			free(factory[count][count2++]);
+		free(factory[count++]);
+	}
+	free(factory);
 }

@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_generic.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/04 18:49:03 by exam              #+#    #+#             */
-/*   Updated: 2017/08/13 12:28:40 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/10 16:47:05 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/10 16:56:05 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int result;
+#include <unistd.h>
 
-	while (*s1 == *(s2) && *(s1))
-	{
-		s2++;
-		s1++;
-	}
-	result = *s1 - *s2;
-	return (result);
+void	ft_generic(void)
+{
+	write(1, "Tut tut ; Tut tut\n", 18);
 }

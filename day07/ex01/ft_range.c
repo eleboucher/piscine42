@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 16:22:40 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/11 14:38:35 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/11 14:02:24 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/12 16:43:28 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		ft_strlen(char *str)
+int	*ft_range(int min, int max)
 {
-	int n;
+	int *tab;
+	int *cpy;
+	int i;
 
-	n = 0;
-	while (*(str++))
-		n++;
-	return (n);
-}
-
-char	*ft_strdup(char *src)
-{
-	char *dest;
-	char *cpy;
-
-	if ((dest = (char*)malloc(sizeof(char) * (ft_strlen(src) + 1))) == NULL)
+	if (min >= max)
 		return (NULL);
-	cpy = dest;
-	while (*src)
-		*(dest++) = *(src++);
-	*dest = '\0';
+	if ((tab = (int*)malloc(sizeof(int) * (max - min))) == NULL)
+		return (NULL);
+	cpy = tab;
+	i = min;
+	while (i < max)
+		*tab++ = i++;
 	return (cpy);
 }

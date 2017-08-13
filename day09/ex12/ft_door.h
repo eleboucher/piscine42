@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_door.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 16:22:40 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/11 14:38:35 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/11 09:35:43 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/11 09:56:27 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef FT_DOOR_H
+# define FT_DOOR_H
+# define CLOSE 0
+# define OPEN 1
 
-int		ft_strlen(char *str)
+typedef	struct		s_door
 {
-	int n;
+	int				state;
+}					t_door;
 
-	n = 0;
-	while (*(str++))
-		n++;
-	return (n);
-}
-
-char	*ft_strdup(char *src)
-{
-	char *dest;
-	char *cpy;
-
-	if ((dest = (char*)malloc(sizeof(char) * (ft_strlen(src) + 1))) == NULL)
-		return (NULL);
-	cpy = dest;
-	while (*src)
-		*(dest++) = *(src++);
-	*dest = '\0';
-	return (cpy);
-}
+int					is_door_close(t_door *door);
+void				close_door(t_door *door);
+int					is_door_open(t_door *door);
+void				ft_putstr(char *str);
+void				open_door(t_door *door);
+#endif
