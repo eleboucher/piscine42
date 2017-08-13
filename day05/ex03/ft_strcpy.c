@@ -6,14 +6,17 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/07 18:14:14 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/08 14:47:38 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/12 11:17:13 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcpy(char *dest, char *src)
 {
+	char *cpy;
+
+	cpy = dest;
 	while (*src)
 		*(dest++) = *(src++);
 	*dest = '\0';
-	return (dest);
+	return (cpy);
 }

@@ -6,7 +6,7 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/07 18:50:45 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/10 15:53:28 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/12 11:32:39 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@ char	*ft_strstr(char *str, char *to_find)
 
 	i = 0;
 	k = 0;
-	while (str[i++])
+	while (str[i])
 	{
 		if (str[i] == to_find[k])
 		{
 			k++;
 			if (to_find[k] == '\0')
-				return (str + (i - k));
+				return (str + (i - k) + 1);
 		}
+		i++;
 	}
 	return (0);
 }

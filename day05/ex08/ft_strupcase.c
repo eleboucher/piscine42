@@ -6,18 +6,23 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/08 19:06:23 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/10 08:50:24 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/12 11:17:55 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strupcase(char *str)
 {
-	while (*(str++))
+	char *cpy;
+
+	cpy = str;
+	while (*str)
 	{
 		if (*str >= 97 && *str <= 122)
 		{
 			*str -= 32;
+		
 		}
+		str++;
 	}
-	return (str);
+	return (cpy);
 }

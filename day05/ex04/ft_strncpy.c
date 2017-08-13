@@ -6,7 +6,7 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/07 18:34:51 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/10 16:39:48 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/12 11:16:58 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,19 @@ int		ft_strlen(char *str)
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	int i;
+	char *cpy;
+	int k;
 
+	cpy = dest;
 	i = 0;
+	k = ft_strlen(src);
 	while (i < n)
 	{
-		if (i < ft_strlen(src))
+		if (i < k)
 			*(dest++) = *(src++);
 		else
 			*(dest++) = '\0';
 		i++;
 	}
-	return (dest);
+	return (cpy);
 }

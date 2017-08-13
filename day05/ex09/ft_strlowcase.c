@@ -6,18 +6,22 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/09 12:13:15 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/10 08:41:25 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/12 11:18:29 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strlowcase(char *str)
 {
-	while (*(str++))
+	char *cpy;
+
+	cpy = str;
+	while (*str)
 	{
-		if (*str >= 67 && *str <= 90)
+		if (*str >= 65 && *str <= 90)
 		{
 			*str += 32;
 		}
+		str++;
 	}
-	return (str);
+	return (cpy);
 }
