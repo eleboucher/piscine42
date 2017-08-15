@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/11 14:44:35 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/14 18:21:04 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/14 09:49:29 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/14 10:15:10 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_ultimate_range(int **range, int min, int max)
-{
-	int i;
+#include <stdlib.h>
 
-	if (min >= max)
+int	*ft_map(int *tab, int length, int (*f)(int))
+{
+	int		i;
+	char	*array;
+
+	if ((array = (int*)malloc(sizeof(int) * length)) == NULL)
 		return (NULL);
-	if ((range = (int*)malloc(sizeof(int) * (max - min))) == null)
-		return (NULL);
-	i = min;
-	while (i < max)
-	{
-		*range = i++;
-		range++;
-	}
-	return (max - min);
+	i = -1;
+	while (++i < length)
+		array[i] = (*f)(tab[i]);
+	return (array);
 }

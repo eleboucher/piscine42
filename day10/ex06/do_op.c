@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*   do_op.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/11 14:44:35 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/14 18:21:04 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/14 11:31:06 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/14 11:35:48 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_ultimate_range(int **range, int min, int max)
+int	main(int argc, char **argv)
 {
-	int i;
+	if (argc > 4 && argc < 4)
+		return (1);
 
-	if (min >= max)
-		return (NULL);
-	if ((range = (int*)malloc(sizeof(int) * (max - min))) == null)
-		return (NULL);
-	i = min;
-	while (i < max)
-	{
-		*range = i++;
-		range++;
-	}
-	return (max - min);
 }

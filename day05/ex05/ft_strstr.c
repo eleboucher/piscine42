@@ -6,9 +6,11 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/07 18:50:45 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/12 11:32:39 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/14 13:52:56 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 char	*ft_strstr(char *str, char *to_find)
 {
@@ -17,6 +19,8 @@ char	*ft_strstr(char *str, char *to_find)
 
 	i = 0;
 	k = 0;
+	if (*to_find == '\0')
+		return (str);
 	while (str[i])
 	{
 		if (str[i] == to_find[k])

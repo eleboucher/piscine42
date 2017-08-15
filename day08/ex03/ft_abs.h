@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*   ft_abs.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/11 14:44:35 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/14 18:21:04 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/13 17:28:30 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/13 17:32:19 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_ultimate_range(int **range, int min, int max)
-{
-	int i;
-
-	if (min >= max)
-		return (NULL);
-	if ((range = (int*)malloc(sizeof(int) * (max - min))) == null)
-		return (NULL);
-	i = min;
-	while (i < max)
-	{
-		*range = i++;
-		range++;
-	}
-	return (max - min);
-}
+#ifndef FT_ABS_H
+# define FT_ABS_H
+# define ABS(Value) (Value < 0 ? -(Value) : Value)
+#endif

@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*   ft_any.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/11 14:44:35 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/14 18:21:04 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/14 10:16:47 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/14 10:28:52 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_ultimate_range(int **range, int min, int max)
+int	ft_any(char **tab, int (*f)(char*))
 {
 	int i;
 
-	if (min >= max)
-		return (NULL);
-	if ((range = (int*)malloc(sizeof(int) * (max - min))) == null)
-		return (NULL);
-	i = min;
-	while (i < max)
+	i = -1;
+	while (tab[++i])
 	{
-		*range = i++;
-		range++;
+		if ((*f)(tab[i]) == 1)
+			return (1);
 	}
-	return (max - min);
+	return (0);
 }

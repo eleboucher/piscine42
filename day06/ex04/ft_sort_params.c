@@ -6,7 +6,7 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 12:52:56 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/13 12:29:05 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/14 14:43:12 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@ void	ft_putchar(char c);
 
 int		ft_strcmp(char *s1, char *s2)
 {
-	int result;
-
 	while (*s1 == *(s2) && *(s1))
 	{
 		s1++;

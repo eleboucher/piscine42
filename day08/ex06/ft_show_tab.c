@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_show_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/10 11:42:25 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/14 14:23:56 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/13 18:54:42 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/14 15:18:34 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_stock_par.h"
 
 void	ft_putchar(char c);
 
@@ -18,15 +20,38 @@ void	ft_putstr(char *str)
 		ft_putchar(*(str++));
 }
 
-int		main(int argc, char **argv)
+void	ft_putnbr(int nb)
+{
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else if (nb < 10)
+	{
+		ft_putchar(nb + '0');
+	}
+}
+
+void	ft_show_tab(struct s_stock_par *par)
 {
 	int i;
+	int k;
 
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (par[i].str)
 	{
-		ft_putstr(argv[i++]);
+		ft_putstr(par[i].str);
 		ft_putchar('\n');
+		ft_putnbr(par[i].size_param);
+		ft_putchar('\n');
+		k = 0;
+		while (par[i].tab[k])
+		{
+			ft_putstr(par[i].tab[k]);
+			ft_putchar('\n');
+			++k;
+		}
+		i++;
 	}
-	return (0);
 }

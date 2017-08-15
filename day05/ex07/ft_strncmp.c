@@ -6,13 +6,13 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/08 18:19:07 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/12 09:06:35 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/14 13:37:23 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int i;
+	unsigned int i;
 
 	i = 0;
 	while (i++ < n && *s1 == *(s2) && *s1)

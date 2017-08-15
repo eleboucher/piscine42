@@ -6,7 +6,7 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 11:33:15 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/10 12:47:44 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/14 14:23:28 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int		main(int argc, char **argv)
 {
 	int i;
 
+	(void)argc;
 	i = 0;
 	while (argv[0][i])
 		ft_putchar(argv[0][i++]);
