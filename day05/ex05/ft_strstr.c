@@ -6,30 +6,30 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/07 18:50:45 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/14 13:52:56 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/15 17:00:02 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 char	*ft_strstr(char *str, char *to_find)
 {
-	int i;
-	int k;
+	char	*p1;
+	char	*p2;
 
-	i = 0;
-	k = 0;
-	if (*to_find == '\0')
-		return (str);
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] == to_find[k])
+		if (*str == *to_find)
 		{
-			k++;
-			if (to_find[k] == '\0')
-				return (str + (i - k) + 1);
+			p1 = str;
+			p2 = to_find;
+			while (*p1 && *p2 && *p1 == *p2)
+			{
+				++p1;
+				++p2;
+			}
+			if (!*p2)
+				return (str);
 		}
-		i++;
+		++str;
 	}
 	return (0);
 }
