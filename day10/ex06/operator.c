@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   operator.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/06 18:39:43 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/15 19:03:20 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/15 18:17:28 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/15 18:53:38 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putchar(char c)
+int	sum(int a, int b)
 {
-	write(1, &c, 1);
+	return (a + b);
 }
 
-void	ft_putnbr(int nb)
+int	subtract(int a, int b)
 {
-	if (nb == -2147483648)
-	{
-		ft_putchar('-');
-		ft_putchar('2');
-		ft_putnbr(147483648);
-	}
-	else if (nb < 0)
-	{
-		ft_putchar('-');
-		ft_putnbr(-nb);
-	}
-	else if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else if (nb < 10)
-	{
-		ft_putchar(nb + '0');
-	}
+	return (a - b);
+}
+
+int	mul(int a, int b)
+{
+	return (a * b);
+}
+
+int	divi(int a, int b)
+{
+	return (a / b);
+}
+
+int	mod(int a, int b)
+{
+	return (a % b);
 }

@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/06 18:39:43 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/15 19:03:20 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/06 21:05:45 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/07 19:15:22 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int	ft_atoi(char *str)
 {
-	write(1, &c, 1);
-}
+	int result;
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
+	result = 0;
+	while ((*str >= 8 && *str <= 13) || *str == ' ')
+		str++;
+	if (*str == '-')
 	{
-		ft_putchar('-');
-		ft_putchar('2');
-		ft_putnbr(147483648);
+		str++;
+		while (*str >= '0' && *str <= '9')
+			result = result * 10 + (*(str++) - '0');
+		return (-result);
 	}
-	else if (nb < 0)
+	else
 	{
-		ft_putchar('-');
-		ft_putnbr(-nb);
+		if (*str == '+')
+			str++;
+		while (*str >= '0' && *str <= '9')
+			result = result * 10 + (*(str++) - '0');
+		return (result);
 	}
-	else if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else if (nb < 10)
-	{
-		ft_putchar(nb + '0');
-	}
+	return (0);
 }

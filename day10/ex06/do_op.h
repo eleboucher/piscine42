@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   do_op.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/06 18:39:43 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/15 19:03:20 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/15 18:21:52 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/15 18:57:29 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef DO_OP_H
+# define DO_OP_H
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+void	ft_putchar(char c);
+void	ft_putnbr(int nb);
+int		ft_atoi(char *str);
+int		sum(int a, int b);
+int		subtract(int a, int b);
+int		mul(int a, int b);
+int		divi(int a, int b);
+int		mod(int a, int b);
+int (*g_op[])(int x, int y) = {sum, subtract, mul, divi, mod};
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
-	{
-		ft_putchar('-');
-		ft_putchar('2');
-		ft_putnbr(147483648);
-	}
-	else if (nb < 0)
-	{
-		ft_putchar('-');
-		ft_putnbr(-nb);
-	}
-	else if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else if (nb < 10)
-	{
-		ft_putchar(nb + '0');
-	}
-}
+#endif
