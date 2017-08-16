@@ -6,7 +6,7 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 15:30:02 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/13 09:08:30 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/16 08:50:29 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ char	*ft_concat_params(int argc, char **argv)
 		while (*str != '\0')
 			str++;
 	}
-	*(++str) = '\0';
+	*str = '\0';
 	return (cpy);
 }

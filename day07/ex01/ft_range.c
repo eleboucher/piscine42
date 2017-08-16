@@ -6,7 +6,7 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 14:02:24 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/12 16:43:28 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/15 10:37:20 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	*ft_range(int min, int max)
 	cpy = tab;
 	i = min;
 	while (i < max)
-		*tab++ = i++;
+		*(tab++) = i++;
 	return (cpy);
 }

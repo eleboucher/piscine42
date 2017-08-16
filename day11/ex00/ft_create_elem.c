@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*   ft_create_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/11 14:44:35 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/16 08:50:50 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/16 09:33:40 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/16 09:45:04 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_list.h"
 #include <stdlib.h>
 
-int	ft_ultimate_range(int **range, int min, int max)
+t_list	*ft_create_elem(void *data)
 {
-	int i;
+	t_list *list;
 
-	if (min >= max)
-		return (0);
-	if ((*range = (int*)malloc(sizeof(*range) * (max - min))) == NULL)
-		return (0);
-	i = min;
-	while (i < max)
-		**(range++) = i + min;
-	return (max - min);
+	list = malloc(sizeof(t_list));
+	list->data = data;
+	list->next = NULL;
+	return (list);
 }
