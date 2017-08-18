@@ -6,13 +6,11 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/13 18:54:42 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/14 15:18:34 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/17 10:41:45 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stock_par.h"
-
-void	ft_putchar(char c);
 
 void	ft_putstr(char *str)
 {

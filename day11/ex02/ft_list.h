@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_words_tables.c                            :+:      :+:    :+:   */
+/*   ft_list.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/14 18:16:54 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/16 13:59:07 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/16 09:32:29 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/16 09:43:56 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#ifndef FT_LIST_H
+# define FT_LIST_H
 
-void	ft_putstr(char *str)
+typedef struct		s_list
 {
-	while (*str)
-		ft_putchar(*(str++));
-}
+	struct s_list	*next;
+	void			*data;
+}					t_list;
 
-void	ft_print_words_tables(char **tab)
-{
-	int i;
-
-	i = 0;
-	while (tab[i])
-	{
-		ft_putstr(tab[i]);
-		ft_putchar('\n');
-		i++;
-	}
-}
+t_list				*ft_create_elem(void *data);
+#endif

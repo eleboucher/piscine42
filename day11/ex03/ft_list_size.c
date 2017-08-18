@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_words_tables.c                            :+:      :+:    :+:   */
+/*   ft_list_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/14 18:16:54 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/16 13:59:07 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/17 16:32:50 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/17 16:38:48 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include "ft_list.h"
+#include <stdlib.h>
 
-void	ft_putstr(char *str)
+int	ft_list_size(t_list *begin_list)
 {
-	while (*str)
-		ft_putchar(*(str++));
-}
+	int			i;
+	t_list		*list;
 
-void	ft_print_words_tables(char **tab)
-{
-	int i;
-
-	i = 0;
-	while (tab[i])
+	list = begin_list;
+	if (begin_list == NULL)
 	{
-		ft_putstr(tab[i]);
-		ft_putchar('\n');
-		i++;
+		return (0);
 	}
+	while (list->next != NULL)
+	{
+		i++;
+		list = list->next;
+	}
+	return (i);
 }

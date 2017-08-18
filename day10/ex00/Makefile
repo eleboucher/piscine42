@@ -6,7 +6,7 @@
 #    By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/13 20:10:41 by elebouch          #+#    #+#              #
-#    Updated: 2017/08/14 09:20:42 by elebouch         ###   ########.fr        #
+#    Updated: 2017/08/17 10:06:51 by elebouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ ARFLAGS = rc
 NAME = libft
 
 SRCS = ft_putchar.c \
-	  ft_putstr.c  \
-	  ft_strcmp.c  \
-	  ft_strlen.c  \
-	  ft_swap.c
+	   ft_putstr.c  \
+	   ft_strcmp.c  \
+	   ft_strlen.c  \
+	   ft_swap.c
 
 INCLUDE = includes/ft.h 
 
@@ -39,6 +39,6 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-		rm -f $(NAME).a
+	rm -f $(NAME).a
 
 re: fclean all

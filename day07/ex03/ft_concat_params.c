@@ -6,7 +6,7 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 15:30:02 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/16 08:50:29 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/17 09:24:14 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*ft_concat_params(int argc, char **argv)
 	i = 1;
 	sum = 0;
 	if (argc == 1)
-		return (NULL);
+		return ("\0");
 	while (i < argc)
 		sum += ft_strlen(argv[i++]);
 	if ((str = (char*)malloc(sizeof(char) * (sum))) == NULL)

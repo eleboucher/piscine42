@@ -6,7 +6,7 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 09:44:32 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/15 10:01:07 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/17 14:02:19 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		ft_strlen(char *str)
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int		i;
-	int					k;
+	unsigned int		k;
 	char				*cpy;
 
 	cpy = dest;
@@ -60,6 +60,7 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 			*(dest++) = '\0';
 		i++;
 	}
+	*dest = '\0';
 	return (cpy);
 }
 
@@ -71,17 +72,17 @@ char	**ft_split_whitespaces(char *str)
 	int		l;
 
 	count = countword(str);
-	if ((array = malloc(count * sizeof(char*))) == NULL || count == 0)
+	if ((array = malloc((count + 1) * sizeof(char*))) == NULL)
 		return (NULL);
 	l = 0;
 	k = 0;
-	while (l < count)
+	while (l < count && *str)
 	{
 		while ((*str >= 8 && *str <= 13) || *str == ' ')
 			str++;
 		while (*str < 127 && *str > 32 && str++)
 			k++;
-		if ((array[l] = malloc(sizeof(char) * (k))) == NULL)
+		if ((array[l] = malloc(sizeof(char) * (k + 1))) == NULL)
 			return (NULL);
 		ft_strncpy(array[l], (str - k), (k));
 		l++;

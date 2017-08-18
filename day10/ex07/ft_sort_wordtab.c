@@ -6,7 +6,7 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/16 09:10:07 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/16 09:12:22 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/17 11:06:59 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,16 @@ int		ft_strcmp(char *s1, char *s2)
 	return (*s1 - *s2);
 }
 
-void	ft_sort(char **tab, int size)
+void	ft_sort(char **tab)
 {
 	int		i;
 	int		j;
 	char	*temp;
 
-	i = size - 1;
+	i = 0;
+	while (tab[i])
+		i++;
+	i -= 1;
 	while (i > 0)
 	{
 		j = 1;
@@ -44,7 +47,7 @@ void	ft_sort(char **tab, int size)
 	}
 }
 
-void ft_sort_wordtab(char **tab)
+void	ft_sort_wordtab(char **tab)
 {
 	ft_sort(tab);
 }
