@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_list_merge.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/14 09:49:29 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/20 16:35:40 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/20 19:41:53 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/21 12:05:01 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_list.h"
 #include <stdlib.h>
 
-int	*ft_map(int *tab, int length, int (*f)(int))
+t_list	*ft_list_last(t_list *begin_list)
 {
-	int		i;
-	int		*array;
+	while (begin_list != NULL && begin_list->next != NULL)
+		begin_list = begin_list->next;
+	return (begin_list);
+}
 
-	if ((array = (int*)malloc(sizeof(int) * length)) == NULL)
-		return (NULL);
-	i = -1;
-	while (++i < length)
-		array[i] = (*f)(tab[i]);
-	return (array);
+void	ft_list_merge(t_list **begin_list1, t_list *begin_list2)
+{
+	if (*begin_list1 == NULL)
+	{
+		*begin_list1 = begin_list2;
+		return ;
+	}
+	ft_list_last(*begin_list1)->next = begin_list2;
 }

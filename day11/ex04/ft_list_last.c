@@ -6,7 +6,7 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 16:45:06 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/17 16:48:53 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/21 12:03:21 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 t_list	*ft_list_last(t_list *begin_list)
 {
-	while(begin_list != NULL && begin_list->next != NULL)
+	while (begin_list != NULL && begin_list->next != NULL)
 		begin_list = begin_list->next;
 	return (begin_list);
 }

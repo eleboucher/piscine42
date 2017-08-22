@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_list_find.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/14 09:49:29 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/20 16:35:40 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/20 17:53:02 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/21 12:04:44 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_list.h"
 #include <stdlib.h>
 
-int	*ft_map(int *tab, int length, int (*f)(int))
+t_list	*ft_list_find(t_list *begin_list, void *data_ref, int (*cmp)())
 {
-	int		i;
-	int		*array;
-
-	if ((array = (int*)malloc(sizeof(int) * length)) == NULL)
-		return (NULL);
-	i = -1;
-	while (++i < length)
-		array[i] = (*f)(tab[i]);
-	return (array);
+	while (begin_list)
+	{
+		if ((*cmp)(begin_list->data, data_ref) == 0)
+			return (begin_list);
+		begin_list = begin_list->next;
+	}
+	return (0);
 }

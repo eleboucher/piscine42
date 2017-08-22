@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   display_file.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/14 09:49:29 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/20 16:35:40 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/21 16:11:00 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/21 16:13:46 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef DISPLAY_FILE_H
+# define DISPLAY_FILE_H
 
-int	*ft_map(int *tab, int length, int (*f)(int))
-{
-	int		i;
-	int		*array;
+void	ft_putchar(char c);
 
-	if ((array = (int*)malloc(sizeof(int) * length)) == NULL)
-		return (NULL);
-	i = -1;
-	while (++i < length)
-		array[i] = (*f)(tab[i]);
-	return (array);
-}
+#endif

@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_list_remove_if.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/14 09:49:29 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/20 16:35:40 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/20 18:00:23 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/22 13:48:10 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_list.h"
 #include <stdlib.h>
 
-int	*ft_map(int *tab, int length, int (*f)(int))
+void	ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 {
-	int		i;
-	int		*array;
+	t_list *list;
+	t_list *prev;
 
-	if ((array = (int*)malloc(sizeof(int) * length)) == NULL)
-		return (NULL);
-	i = -1;
-	while (++i < length)
-		array[i] = (*f)(tab[i]);
-	return (array);
+	list = *begin_list;
+	prev = 0;
+	if (list == NULL)
+		return ;
+	while (list)
+	{
+		if ((*cmp)(list->data, data_ref) == 0)
+		{
+			if (prev == 0)
+				*begin_list = (*begin_list)->next;
+			else
+			{
+				prev->next = list->next;
+				free(list);
+				list = prev;
+			}
+		}
+		prev = list;
+		list = list->next;
+	}
 }

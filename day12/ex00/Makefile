@@ -5,29 +5,26 @@
 #                                                     +:+ +:+         +:+      #
 #    By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/08/13 20:10:41 by elebouch          #+#    #+#              #
-#    Updated: 2017/08/21 10:51:27 by elebouch         ###   ########.fr        #
+#    Created: 2017/08/21 16:17:56 by elebouch          #+#    #+#              #
+#    Updated: 2017/08/21 17:09:49 by elebouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CC = gcc
+FLAGS = -Wall -Werror -Wextra
+EXEC = ft_display_file
 
-NAME = do-op 
+SRC = srcs/display_file.c \
+	  srcs/ft_putchar.c
 
-SRCS = do_op.c     \
-	  ft_atoi.c    \
-	  ft_putnbr.c  \
-	  operator.c 
+INCLUDES = includes/
 
-INCLUDE = do_op.h
+all : $(EXEC)
 
-all: $(NAME)
+$(EXEC) : 
+	$(CC) $(FLAGS) $(SRC) -I $(INCLUDES) -o $(EXEC)
 
-$(NAME): 
-	$(CC) $(CFLAGS) $(SRCS) -I $(INCLUDE) -o $(NAME) 
+clean : 
+	rm $(EXEC)
 
-clean:
-	rm -f $(NAME)
-
-re: clean all
+re : clean all

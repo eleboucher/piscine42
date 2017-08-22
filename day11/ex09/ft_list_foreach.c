@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_list_foreach.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/14 09:49:29 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/20 16:35:40 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/20 15:33:52 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/21 12:04:15 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_list.h"
 #include <stdlib.h>
 
-int	*ft_map(int *tab, int length, int (*f)(int))
+void	ft_list_foreach(t_list *begin_list, void (*f)(void *))
 {
-	int		i;
-	int		*array;
-
-	if ((array = (int*)malloc(sizeof(int) * length)) == NULL)
-		return (NULL);
-	i = -1;
-	while (++i < length)
-		array[i] = (*f)(tab[i]);
-	return (array);
+	while (begin_list != NULL)
+	{
+		(*f)(begin_list->data);
+		begin_list = begin_list->next;
+	}
 }

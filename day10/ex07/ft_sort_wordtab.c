@@ -6,7 +6,7 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/16 09:10:07 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/17 11:06:59 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/20 09:15:52 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_sort(char **tab)
 	i -= 1;
 	while (i > 0)
 	{
-		j = 1;
+		j = 0;
 		while (j <= i - 1)
 		{
 			if (ft_strcmp(tab[j + 1], tab[j]) < 0)

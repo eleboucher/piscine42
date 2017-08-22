@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_params.c                              :+:      :+:    :+:   */
+/*   display_file.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/17 16:49:56 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/22 13:51:46 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/21 16:02:18 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/21 16:56:55 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
-#include <stdlib.h>
+#include "display_file.h"
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdio.h>
 
-t_list	*ft_list_push_params(int ac, char **av)
+int		main (int argc, char **argv)
 {
-	t_list	*new;
-	t_list	*head;
-	int		i;
+	int fd;
+	char c;
 
-	i = -1;
-	head = 0;
-	while (++i < ac)
+	if (argc == 1)
 	{
-		new = ft_create_elem(av[i]);
-		new->next = head;
-		head = new;
+		write (2,"File name missing.\n",19);
+		return (1);
 	}
-	return (head);
+	else if (argc > 2)
+	{
+		write(2,"Too many arguments.\n",20);
+		return (1);
+	}
+	if ((fd = open(argv[1], O_RDONLY)) == -1)
+		return (1);
+	while (read(fd,&c,1))
+	{
+		if (c != EOF)
+			ft_putchar(c);
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 16:32:50 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/17 16:38:48 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/22 13:43:57 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,11 @@
 int	ft_list_size(t_list *begin_list)
 {
 	int			i;
-	t_list		*list;
-
-	list = begin_list;
-	if (begin_list == NULL)
+	i = 0;
+	while (begin_list)
 	{
-		return (0);
-	}
-	while (list->next != NULL)
-	{
-		i++;
-		list = list->next;
+		begin_list = begin_list->next;
+		++i;
 	}
 	return (i);
 }

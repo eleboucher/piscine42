@@ -6,7 +6,7 @@
 #    By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/13 20:10:41 by elebouch          #+#    #+#              #
-#    Updated: 2017/08/17 10:06:51 by elebouch         ###   ########.fr        #
+#    Updated: 2017/08/20 16:15:20 by elebouch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS = ft_putchar.c \
 	   ft_strlen.c  \
 	   ft_swap.c
 
-INCLUDE = includes/ft.h 
+INCLUDE = includes/
 
 DIROBJ = srcs
 SRC = $(addprefix $(DIROBJ)/, $(SRCS))

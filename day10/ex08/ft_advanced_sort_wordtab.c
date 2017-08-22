@@ -6,7 +6,7 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 11:07:39 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/17 11:11:07 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/20 09:16:00 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_advanced_sort_wordtab(char **tab, int (*cmp)(char*, char*))
 	i -= 1;
 	while (i > 0)
 	{
-		j = 1;
+		j = 0;
 		while (j <= i - 1)
 		{
 			if ((*cmp)(tab[j + 1], tab[j]) < 0)

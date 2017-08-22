@@ -6,14 +6,14 @@
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/16 09:45:15 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/17 14:20:50 by elebouch         ###   ########.fr       */
+/*   Updated: 2017/08/21 11:51:23 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 #include <stdlib.h>
 
-void ft_list_push_back(t_list **begin_list, void *data)
+void	ft_list_push_back(t_list **begin_list, void *data)
 {
 	t_list	*list;
 
@@ -21,7 +21,7 @@ void ft_list_push_back(t_list **begin_list, void *data)
 	if (list == NULL)
 	{
 		*begin_list = ft_create_elem(data);
-		return;
+		return ;
 	}
 	while (list->next != NULL)
 		list = list->next;
