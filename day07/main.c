@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_file.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elebouch <elebouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 16:02:18 by elebouch          #+#    #+#             */
-/*   Updated: 2017/08/22 16:08:06 by elebouch         ###   ########.fr       */
+/*   Created: 2017/08/17 09:19:15 by elebouch          #+#    #+#             */
+/*   Updated: 2017/08/17 13:54:24 by elebouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "display_file.h"
-#include <unistd.h>
-#include <fcntl.h>
 #include <stdio.h>
+#include <unistd.h>
+#include "ex04/ft_split_whitespaces.c"
+#include "ex05/ft_print_words_tables.c"
 
-int		main(int argc, char **argv)
+void	ft_putchar(char c)
 {
-	int		fd;
-	char	c;
+	write(1, &c, 1);
+}
 
-	if (argc == 1)
-	{
-		write(2, "File name missing.\n", 19);
-		return (1);
-	}
-	else if (argc > 2)
-	{
-		write(2, "Too many arguments.\n", 20);
-		return (1);
-	}
-	if ((fd = open(argv[1], O_RDONLY)) == -1)
-		return (1);
-	while (read(fd, &c, 1))
-	{
-		if (c != EOF)
-			ft_putchar(c);
-	}
-	return (0);
+int	main(int argc, char **argv)
+{
+	ft_print_words_tables(ft_split_whitespaces(argv[1]));
 }
